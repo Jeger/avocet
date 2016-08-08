@@ -1,0 +1,10 @@
+{
+  "event": "measurement",
+  "data": {
+    "batchId": "abc123",
+    "temp": "92",
+    "flow": "129"
+  },
+  "published_at": "1979-01-01T00:00:00Z",
+  "coreid": "2a003e000d47343432313031"
+}
