@@ -22,7 +22,7 @@ var auth = function (req, res, next) {
     return unauthorized(res);
   };
 
-  if (user.name === 'process.env.HOOK_USERNAME' && user.pass === 'process.env.HOOK_PASSWORD') {
+  if (user.name === process.env.HOOK_USERNAME && user.pass === process.env.HOOK_PASSWORD) {
     return next();
   } else {
     return unauthorized(res);
