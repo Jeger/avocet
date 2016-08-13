@@ -5,8 +5,10 @@ const influx = require('influx')
 const app = express();
 
 const client = influx({
-  host : 'localhost',
-  database : 'avocet'
+  host: 'localhost',
+  database: 'avocet',
+  username: process.env.INFLUX_USERNAME,
+  password: process.env.INFLUX_PASSWORD
 });
 
 var auth = function (req, res, next) {
@@ -33,6 +35,7 @@ app.use(bodyParser.json());
 
 app.post('/', auth, function(req, res) {
   const data = req.body.data;
+  // TODO: validate data, should be limited?
   res.status(200);
   res.send();
   client.writePoint(data.batchId, {time: new Date(), temp: data.temp, flow: data.flow });
